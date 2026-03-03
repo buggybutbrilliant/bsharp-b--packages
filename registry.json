@@ -1,1 +1,15 @@
-{}
+"colors": {
+  "description": "Terminal colour output",
+  "author": "buggybutbrilliant",
+  "tags": ["terminal"],
+  "latest": "1.0.0",
+  "versions": {
+    "1.0.0": {
+      "dependencies": {},
+      "files": {
+        "colors.py": "<full python source here>",
+        "bsharp.json": "{\"name\":\"colors\",\"version\":\"1.0.0\"}"
+      }
+    }
+  }
+}
