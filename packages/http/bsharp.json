@@ -1,0 +1,8 @@
+{
+  "name": "http",
+  "version": "1.0.0",
+  "description": "Make HTTP GET and POST requests",
+  "author": "buggybutbrilliant",
+  "license": "MIT",
+  "dependencies": {}
+}
