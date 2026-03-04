@@ -1,14 +1,16 @@
-"colors": {
-  "description": "Terminal colour output",
-  "author": "buggybutbrilliant",
-  "tags": ["terminal"],
-  "latest": "1.0.0",
-  "versions": {
-    "1.0.0": {
-      "dependencies": {},
-      "files": {
-        "colors.py": "<full python source here>",
-        "bsharp.json": "{\"name\":\"colors\",\"version\":\"1.0.0\"}"
+{
+  "colors": {
+    "description": "Print coloured text in the terminal",
+    "author": "buggybutbrilliant",
+    "tags": ["terminal", "output", "utility"],
+    "latest": "1.0.0",
+    "versions": {
+      "1.0.0": {
+        "dependencies": {},
+        "files": {
+          "colors.py": "class ModuleObject:\n    def __init__(self, name, exports):\n        self.name = name\n        self.exports = exports\n\ndef load():\n    def _red(text):     print(f'\\033[31m{text}\\033[0m'); return None\n    def _green(text):   print(f'\\033[32m{text}\\033[0m'); return None\n    def _yellow(text):  print(f'\\033[33m{text}\\033[0m'); return None\n    def _blue(text):    print(f'\\033[34m{text}\\033[0m'); return None\n    def _cyan(text):    print(f'\\033[36m{text}\\033[0m'); return None\n    def _magenta(text): print(f'\\033[35m{text}\\033[0m'); return None\n    def _bold(text):    print(f'\\033[1m{text}\\033[0m');  return None\n    def _reset(text):   print(f'\\033[0m{text}\\033[0m');  return None\n    return ModuleObject('colors', {'red': _red, 'green': _green, 'yellow': _yellow, 'blue': _blue, 'cyan': _cyan, 'magenta': _magenta, 'bold': _bold, 'reset': _reset})",
+          "bsharp.json": "{\"name\": \"colors\", \"version\": \"1.0.0\", \"description\": \"Print coloured text in the terminal\", \"author\": \"buggybutbrilliant\", \"license\": \"MIT\", \"dependencies\": {}}"
+        }
       }
     }
   }
