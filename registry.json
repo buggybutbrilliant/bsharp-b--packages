@@ -13,5 +13,20 @@
         }
       }
     }
+  },
+  "http": {
+    "description": "Make HTTP GET and POST requests",
+    "author": "buggybutbrilliant",
+    "tags": ["network", "web", "api"],
+    "latest": "1.0.0",
+    "versions": {
+      "1.0.0": {
+        "dependencies": {},
+        "files": {
+          "http.py": "class ModuleObject:\n    def __init__(self, name, exports):\n        self.name = name\n        self.exports = exports\n\ndef load():\n    from urllib.request import urlopen, Request\n    from urllib.error   import URLError, HTTPError\n    import json as _json\n\n    def _get(url):\n        try:\n            req = Request(str(url), headers={'User-Agent': 'bsharp-http/1.0'})\n            with urlopen(req, timeout=15) as r:\n                return r.read().decode('utf-8')\n        except HTTPError as e:\n            return f'ERROR: HTTP {e.code}'\n        except URLError as e:\n            return f'ERROR: {e.reason}'\n\n    def _post(url, body):\n        try:\n            data = str(body).encode('utf-8')\n            req  = Request(str(url), data=data, headers={'User-Agent': 'bsharp-http/1.0', 'Content-Type': 'application/json'})\n            with urlopen(req, timeout=15) as r:\n                return r.read().decode('utf-8')\n        except HTTPError as e:\n            return f'ERROR: HTTP {e.code}'\n        except URLError as e:\n            return f'ERROR: {e.reason}'\n\n    def _status(url):\n        try:\n            req = Request(str(url), headers={'User-Agent': 'bsharp-http/1.0'})\n            with urlopen(req, timeout=15) as r:\n                return r.status\n        except HTTPError as e:\n            return e.code\n        except URLError:\n            return 0\n\n    def _parse(text):\n        try:\n            return _json.loads(str(text))\n        except Exception:\n            return None\n\n    def _stringify(obj):\n        try:\n            return _json.dumps(obj)\n        except Exception:\n            return str(obj)\n\n    return ModuleObject('http', {'get': _get, 'post': _post, 'status': _status, 'parse': _parse, 'stringify': _stringify})",
+          "bsharp.json": "{\"name\": \"http\", \"version\": \"1.0.0\", \"description\": \"Make HTTP GET and POST requests\", \"author\": \"buggybutbrilliant\", \"license\": \"MIT\", \"dependencies\": {}}"
+        }
+      }
+    }
   }
 }
