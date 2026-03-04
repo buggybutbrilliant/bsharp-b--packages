@@ -1,0 +1,8 @@
+{
+  "name": "datetime_utils",
+  "version": "1.0.0",
+  "description": "Date and time utilities: now, today, weekday, format, diff_days, add_days",
+  "author": "buggybutbrilliant",
+  "license": "MIT",
+  "dependencies": {}
+}
