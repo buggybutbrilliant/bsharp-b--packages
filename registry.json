@@ -28,7 +28,7 @@
         }
       }
     }
-  }
+  },
   "math_extra": {
     "description": "Extended math: clamp, lerp, sign, degrees, gcd, lcm, factorial, is_prime",
     "author": "buggybutbrilliant",
@@ -45,3 +45,4 @@
     }
   }
 }
+
