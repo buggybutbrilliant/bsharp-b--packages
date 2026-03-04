@@ -29,4 +29,19 @@
       }
     }
   }
+  "math_extra": {
+    "description": "Extended math: clamp, lerp, sign, degrees, gcd, lcm, factorial, is_prime",
+    "author": "buggybutbrilliant",
+    "tags": ["math", "utility"],
+    "latest": "1.0.0",
+    "versions": {
+      "1.0.0": {
+        "dependencies": {},
+        "files": {
+          "math_extra.py": "class ModuleObject:\n    def __init__(self, name, exports):\n        self.name = name\n        self.exports = exports\n\ndef load():\n    import math as _math\n\n    def _clamp(value, mn, mx):\n        return max(float(mn), min(float(mx), float(value)))\n\n    def _lerp(a, b, t):\n        return float(a) + (float(b) - float(a)) * float(t)\n\n    def _sign(x):\n        if float(x) > 0: return 1\n        if float(x) < 0: return -1\n        return 0\n\n    def _degrees(radians):\n        return _math.degrees(float(radians))\n\n    def _radians(degrees):\n        return _math.radians(float(degrees))\n\n    def _is_even(n):\n        return int(n) % 2 == 0\n\n    def _is_odd(n):\n        return int(n) % 2 != 0\n\n    def _gcd(a, b):\n        return _math.gcd(int(a), int(b))\n\n    def _lcm(a, b):\n        a, b = int(a), int(b)\n        return abs(a * b) // _math.gcd(a, b)\n\n    def _factorial(n):\n        return _math.factorial(int(n))\n\n    def _isPrime(n):\n        n = int(n)\n        if n < 2: return False\n        for i in range(2, int(_math.sqrt(n)) + 1):\n            if n % i == 0: return False\n        return True\n\n    return ModuleObject('math_extra', {'clamp': _clamp, 'lerp': _lerp, 'sign': _sign, 'degrees': _degrees, 'radians': _radians, 'is_even': _is_even, 'is_odd': _is_odd, 'gcd': _gcd, 'lcm': _lcm, 'factorial': _factorial, 'is_prime': _isPrime})",
+          "bsharp.json": "{\"name\": \"math_extra\", \"version\": \"1.0.0\", \"description\": \"Extended math: clamp, lerp, sign, degrees, gcd, lcm, factorial, is_prime\", \"author\": \"buggybutbrilliant\", \"license\": \"MIT\", \"dependencies\": {}}"
+        }
+      }
+    }
+  }
 }
