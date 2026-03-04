@@ -1,0 +1,8 @@
+{
+  "name": "colors",
+  "version": "1.0.0",
+  "description": "Print coloured text in the terminal",
+  "author": "buggybutbrilliant",
+  "license": "MIT",
+  "dependencies": {}
+}
