@@ -1,0 +1,8 @@
+{
+  "name": "math_extra",
+  "version": "1.0.0",
+  "description": "Extended math: clamp, lerp, sign, degrees, gcd, lcm, factorial, is_prime",
+  "author": "buggybutbrilliant",
+  "license": "MIT",
+  "dependencies": {}
+}
