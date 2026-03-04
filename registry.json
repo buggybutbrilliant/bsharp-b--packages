@@ -43,5 +43,21 @@
         }
       }
     }
+  },
+  "datetime_utils": {
+    "description": "Date and time utilities: now, today, weekday, format, diff_days, add_days",
+    "author": "buggybutbrilliant",
+    "tags": ["date", "time", "utility"],
+    "latest": "1.0.0",
+    "versions": {
+      "1.0.0": {
+        "dependencies": {},
+        "files": {
+          "datetime_utils.py": "class ModuleObject:\n    def __init__(self, name, exports):\n        self.name = name\n        self.exports = exports\n\ndef load():\n    import datetime as _dt\n\n    def _now():\n        return _dt.datetime.now().strftime('%Y-%m-%d %H:%M:%S')\n\n    def _today():\n        return _dt.date.today().strftime('%Y-%m-%d')\n\n    def _year():\n        return _dt.datetime.now().year\n\n    def _month():\n        return _dt.datetime.now().month\n\n    def _day():\n        return _dt.datetime.now().day\n\n    def _hour():\n        return _dt.datetime.now().hour\n\n    def _minute():\n        return _dt.datetime.now().minute\n\n    def _weekday():\n        days = ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday']\n        return days[_dt.datetime.now().weekday()]\n\n    def _is_weekend():\n        return _dt.datetime.now().weekday() >= 5\n\n    def _format(date_str, fmt):\n        try:\n            d = _dt.datetime.strptime(str(date_str), '%Y-%m-%d')\n            return d.strftime(str(fmt))\n        except Exception as e:\n            return f'ERROR: {e}'\n\n    def _diff_days(date1, date2):\n        try:\n            d1 = _dt.datetime.strptime(str(date1), '%Y-%m-%d')\n            d2 = _dt.datetime.strptime(str(date2), '%Y-%m-%d')\n            return abs((d2 - d1).days)\n        except Exception as e:\n            return f'ERROR: {e}'\n\n    def _add_days(date_str, n):\n        try:\n            d = _dt.datetime.strptime(str(date_str), '%Y-%m-%d')\n            result = d + _dt.timedelta(days=int(n))\n            return result.strftime('%Y-%m-%d')\n        except Exception as e:\n            return f'ERROR: {e}'\n\n    return ModuleObject('datetime_utils', {'now': _now, 'today': _today, 'year': _year, 'month': _month, 'day': _day, 'hour': _hour, 'minute': _minute, 'weekday': _weekday, 'is_weekend': _is_weekend, 'format': _format, 'diff_days': _diff_days, 'add_days': _add_days})",
+          "bsharp.json": "{\"name\": \"datetime_utils\", \"version\": \"1.0.0\", \"description\": \"Date and time utilities: now, today, weekday, format, diff_days, add_days\", \"author\": \"buggybutbrilliant\", \"license\": \"MIT\", \"dependencies\": {}}"
+        }
+      }
+    }
   }
 }
+
